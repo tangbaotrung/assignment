@@ -80,7 +80,11 @@ public class StockExchangeImpl implements StockExchange {
    */
   @Override
   public BigDecimal getTradingCosts() {
-    return tradingActivityService.countCosts();
+    BigDecimal countCosts = tradingActivityService.countCosts();
+    if (countCosts == null) {
+      countCosts = BigDecimal.ZERO;
+    }
+    return countCosts;
   }
 
   /**

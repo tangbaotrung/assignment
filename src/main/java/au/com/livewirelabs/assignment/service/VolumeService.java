@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.google.inject.Inject;
-import com.google.inject.persist.Transactional;
 
 import au.com.livewirelabs.assignment.entity.VolumeEntity;
 
@@ -54,7 +53,6 @@ public class VolumeService {
    * @param units
    *          the units
    */
-  @Transactional
   public void persist(final String code, final Integer units) {
     final VolumeEntity entity = new VolumeEntity(code, units);
     em.persist(entity);
@@ -66,7 +64,6 @@ public class VolumeService {
    * @param entity
    *          the entity
    */
-  @Transactional
   public void merge(final VolumeEntity entity) {
     em.merge(entity);
   }

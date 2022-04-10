@@ -72,7 +72,11 @@ public class Assignment extends AbstractModule {
    */
   private void printReport() {
     final Map<String, Integer> map = stockExchange.getOrderBookTotalVolume();
-    LOG.info("Code: {}, remaining volume: {}, income of change: {}", code, map.get(code),
+    Integer volume = map.get(code);
+    if (volume == null) {
+      volume = 0;
+    }
+    LOG.info("Code: {}, remaining volume: {}, income of change: {}", code, volume,
         stockExchange.getTradingCosts());
   }
 
