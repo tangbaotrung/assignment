@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS se_volume (volume_id INT auto_increment PRIMARY KEY,volume_code VARCHAR(3) NOT NULL,volume_units INT NOT NULL,CONSTRAINT UQ_Volume_Code UNIQUE KEY (volume_code));
+CREATE TABLE IF NOT EXISTS se_trading_activity (trading_activity_id INT auto_increment PRIMARY KEY, trading_activity_action VARCHAR(4) NOT NULL, trading_activity_code VARCHAR(3) NOT NULL, trading_activity_costs NUMERIC(19,2) NOT NULL, trading_activity_units INT NOT NULL);
+CREATE TABLE IF NOT EXISTS se_trading_rate (trading_rate_code VARCHAR(3) NOT NULL, trading_rate_cost NUMERIC(19,2) NOT NULL, PRIMARY KEY (trading_rate_code));
